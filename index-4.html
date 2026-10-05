@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdant Horizon Farms | Sustainable Agriculture</title>
+  <meta name="description" content="Professional multi-sector farming enterprise specializing in coffee, pig, fishery, and chicken farming with sustainable practices.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a5c3a;
+      --primary-dark: #0f3d26;
+      --primary-light: #2d8a58;
+      --accent: #c4a35a;
+      --accent-soft: #e8d9a8;
+      --bg: #f7f5f0;
+      --bg-alt: #eef3eb;
+      --text: #1c2b22;
+      --text-muted: #5a6b60;
+      --white: #ffffff;
+      --card-shadow: 0 8px 30px rgba(26, 92, 58, 0.08);
+      --radius: 14px;
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ========== HEADER / NAV ========== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(26, 92, 58, 0.08);
+      transition: box-shadow var(--transition);
+    }
+
+    .header.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 8px 14px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      border-radius: 8px;
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+      background: var(--bg-alt);
+    }
+
+    .nav-cta {
+      margin-left: 12px;
+      background: var(--primary) !important;
+      color: white !important;
+      padding: 10px 20px !important;
+      border-radius: 8px !important;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: var(--primary-dark);
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 24px 80px;
+      background:
+        linear-gradient(135deg, rgba(15, 61, 38, 0.88) 0%, rgba(26, 92, 58, 0.75) 50%, rgba(45, 138, 88, 0.65) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="p" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1.5" fill="%23ffffff" opacity="0.07"/></pattern></defs><rect fill="%231a5c3a" width="1200" height="800"/><rect fill="url(%23p)" width="1200" height="800"/></svg>');
+      background-size: cover;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to top, var(--bg), transparent);
+    }
+
+    .hero-content {
+      max-width: 1180px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 520px;
+      opacity: 0.92;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--primary-dark);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(196, 163, 90, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: white;
+    }
+
+    /* ========== STATS BAR ========== */
+    .stats {
+      max-width: 1180px;
+      margin: -40px auto 0;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 8px;
+    }
+
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ========== SECTION COMMON ========== */
+    section {
+      padding: 90px 24px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary-light);
+      margin-bottom: 12px;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* ========== DIVISIONS OVERVIEW ========== */
+    .divisions {
+      background: var(--bg);
+    }
+
+    .divisions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .division-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .division-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(26, 92, 58, 0.12);
+    }
+
+    .division-visual {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+    }
+
+    .division-visual.coffee { background: linear-gradient(145deg, #3d2b1f 0%, #6b4c35 100%); }
+    .division-visual.pig { background: linear-gradient(145deg, #5c3a2e 0%, #8b5e4a 100%); }
+    .division-visual.fishery { background: linear-gradient(145deg, #1a3c5c 0%, #2d6a8a 100%); }
+    .division-visual.chicken { background: linear-gradient(145deg, #5c4a1a 0%, #8a7a2d 100%); }
+
+    .division-body {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .division-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .division-body p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .division-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--primary);
+      transition: gap var(--transition);
+    }
+
+    .division-link:hover {
+      gap: 10px;
+    }
+
+    /* ========== DETAIL SECTIONS ========== */
+    .detail-section {
+      background: var(--white);
+    }
+
+    .detail-section:nth-of-type(even) {
+      background: var(--bg-alt);
+    }
+
+    .detail-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .detail-layout.reverse {
+      direction: rtl;
+    }
+
+    .detail-layout.reverse > * {
+      direction: ltr;
+    }
+
+    .detail-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+    }
+
+    .detail-content .lead {
+      font-size: 1.08rem;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .detail-content p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .detail-visual {
+      border-radius: var(--radius);
+      height: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: white;
+      font-size: 4.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .detail-visual span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      opacity: 0.95;
+    }
+
+    .detail-visual.coffee { background: linear-gradient(160deg, #2c1a12 0%, #5c3d28 50%, #8b6540 100%); }
+    .detail-visual.pig { background: linear-gradient(160deg, #3d251c 0%, #6b4030 50%, #9a5f48 100%); }
+    .detail-visual.fishery { background: linear-gradient(160deg, #0f2a40 0%, #1e4d6e 50%, #2d7a9a 100%); }
+    .detail-visual.chicken { background: linear-gradient(160deg, #3d3510 0%, #6b5c20 50%, #9a8a30 100%); }
+
+    /* ========== CTA ========== */
+    .cta {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      text-align: center;
+      padding: 90px 24px;
+    }
+
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      max-width: 480px;
+      margin: 0 auto 32px;
+      opacity: 0.9;
+      font-size: 1.05rem;
+    }
+
+    .cta .btn-primary {
+      background: var(--accent);
+      color: var(--primary-dark);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #0d2a1c;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 60px 24px 30px;
+    }
+
+    .footer-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .logo {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      max-width: 280px;
+      opacity: 0.75;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col a {
+      font-size: 0.9rem;
+      opacity: 0.75;
+      transition: opacity var(--transition);
+    }
+
+    .footer-col a:hover {
+      opacity: 1;
+    }
+
+    .footer-bottom {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 16px 24px 24px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        gap: 4px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 12px 16px;
+      }
+
+      .nav-cta {
+        margin-left: 0;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .divisions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-layout,
+      .detail-layout.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 36px;
+      }
+
+      .detail-visual {
+        height: 260px;
+        order: -1;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding: 24px 16px;
+      }
+
+      .stat-value {
+        font-size: 1.6rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <div class="logo-icon">🌿</div>
+        Verdant Horizon
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#divisions">Divisions</a></li>
+        <li><a href="#coffee">Coffee</a></li>
+        <li><a href="#pig">Pig</a></li>
+        <li><a href="#fishery">Fishery</a></li>
+        <li><a href="#chicken">Chicken</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">Sustainable Multi-Sector Agriculture</div>
+      <h1>Cultivating Excellence Across Land &amp; Water</h1>
+      <p>From highland coffee estates to integrated livestock and aquaculture systems — Verdant Horizon Farms delivers quality produce through responsible, modern farming practices.</p>
+      <div class="hero-actions">
+        <a href="#divisions" class="btn btn-primary">Explore Our Divisions</a>
+        <a href="#contact" class="btn btn-outline">Partner With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-value">4</div>
+        <div class="stat-label">Farming Divisions</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">1,200+</div>
+        <div class="stat-label">Hectares Managed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">18</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Traceable Produce</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIVISIONS OVERVIEW -->
+  <section class="divisions" id="divisions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Our Operations</span>
+        <h2>Four Pillars of Production</h2>
+        <p>Integrated farming systems designed for quality, sustainability, and reliable supply across specialty crops and animal protein.</p>
+      </div>
+      <div class="divisions-grid">
+        <article class="division-card">
+          <div class="division-visual coffee">☕</div>
+          <div class="division-body">
+            <h3>Coffee Farming &amp; Harvesting</h3>
+            <p>Specialty arabica and robusta grown at elevation, hand-picked, and processed with meticulous care for exceptional cup quality.</p>
+            <a href="#coffee" class="division-link">Learn more →</a>
+          </div>
+        </article>
+        <article class="division-card">
+          <div class="division-visual pig">🐷</div>
+          <div class="division-body">
+            <h3>Pig Farming</h3>
+            <p>Modern, welfare-focused pig production with controlled breeding, nutrition programs, and biosecure housing systems.</p>
+            <a href="#pig" class="division-link">Learn more →</a>
+          </div>
+        </article>
+        <article class="division-card">
+          <div class="division-visual fishery">🐟</div>
+          <div class="division-body">
+            <h3>Fishery Farming</h3>
+            <p>Sustainable aquaculture producing high-quality freshwater fish through carefully managed ponds and recirculating systems.</p>
+            <a href="#fishery" class="division-link">Learn more →</a>
+          </div>
+        </article>
+        <article class="division-card">
+          <div class="division-visual chicken">🐔</div>
+          <div class="division-body">
+            <h3>Chicken Farming</h3>
+            <p>Broiler and layer operations focused on bird health, feed efficiency, and consistent supply of poultry meat and eggs.</p>
+            <a href="#chicken" class="division-link">Learn more →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COFFEE DETAIL -->
+  <section class="detail-section" id="coffee">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-content">
+          <span class="section-eyebrow">Division 01</span>
+          <h2>Coffee Farming &amp; Harvesting</h2>
+          <p class="lead">Premium coffee grown under optimal highland conditions and harvested with precision to preserve bean integrity and flavor potential.</p>
+          <p>Our coffee estates combine traditional knowledge with modern agronomy. Shade-grown plots, selective hand-picking at peak ripeness, and controlled wet or dry processing deliver consistent specialty-grade lots.</p>
+          <ul class="feature-list">
+            <li>Elevation-optimized arabica &amp; robusta cultivars</li>
+            <li>Selective hand-harvesting of ripe cherries only</li>
+            <li>On-site wet mill and drying facilities</li>
+            <li>Full traceability from plot to export lot</li>
+            <li>Soil health and biodiversity management</li>
+          </ul>
+        </div>
+        <div class="detail-visual coffee">
+          ☕
+          <span>Coffee Estates</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIG DETAIL -->
+  <section class="detail-section" id="pig">
+    <div class="container">
+      <div class="detail-layout reverse">
+        <div class="detail-content">
+          <span class="section-eyebrow">Division 02</span>
+          <h2>Pig Farming</h2>
+          <p class="lead">High-welfare pig production systems engineered for animal health, efficient growth, and reliable pork supply.</p>
+          <p>We operate modern breeding and finishing units with strict biosecurity, balanced nutrition, and continuous health monitoring. Our focus is on producing quality pork while maintaining high standards of animal care and environmental responsibility.</p>
+          <ul class="feature-list">
+            <li>Closed-herd breeding with performance genetics</li>
+            <li>Climate-controlled housing &amp; enrichment</li>
+            <li>Precision feeding and growth tracking</li>
+            <li>Veterinary protocols &amp; vaccination schedules</li>
+            <li>Manure management &amp; nutrient recycling</li>
+          </ul>
+        </div>
+        <div class="detail-visual pig">
+          🐷
+          <span>Pig Production</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FISHERY DETAIL -->
+  <section class="detail-section" id="fishery">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-content">
+          <span class="section-eyebrow">Division 03</span>
+          <h2>Fishery Farming</h2>
+          <p class="lead">Responsible aquaculture delivering fresh, high-quality fish through managed ponds and efficient water systems.</p>
+          <p>Our fishery operations prioritize water quality, sustainable stocking densities, and careful species selection. From hatchery to harvest, every stage is monitored to ensure healthy fish and minimal environmental impact.</p>
+          <ul class="feature-list">
+            <li>Freshwater species suited to local conditions</li>
+            <li>Pond and recirculating aquaculture systems</li>
+            <li>Continuous water-quality monitoring</li>
+            <li>Feed optimization &amp; disease prevention</li>
+            <li>Responsible harvest &amp; cold-chain handling</li>
+          </ul>
+        </div>
+        <div class="detail-visual fishery">
+          🐟
+          <span>Aquaculture</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHICKEN DETAIL -->
+  <section class="detail-section" id="chicken">
+    <div class="container">
+      <div class="detail-layout reverse">
+        <div class="detail-content">
+          <span class="section-eyebrow">Division 04</span>
+          <h2>Chicken Farming</h2>
+          <p class="lead">Integrated poultry systems producing quality broiler meat and table eggs with strong biosecurity and welfare standards.</p>
+          <p>Our chicken operations cover both meat and egg production. Birds are raised in well-ventilated housing with controlled lighting, nutrition programs, and rigorous health management to ensure consistent, safe products.</p>
+          <ul class="feature-list">
+            <li>Broiler and commercial layer flocks</li>
+            <li>Climate-controlled housing &amp; ventilation</li>
+            <li>Formulated feeds for growth &amp; laying</li>
+            <li>Strict biosecurity &amp; vaccination programs</li>
+            <li>Hygienic processing &amp; egg collection</li>
+          </ul>
+        </div>
+        <div class="detail-visual chicken">
+          🐔
+          <span>Poultry Systems</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <h2>Ready to Partner or Source?</h2>
+    <p>Whether you need specialty coffee lots, quality livestock products, or reliable aquaculture supply — we are ready to discuss volumes, specifications, and long-term collaboration.</p>
+    <a href="mailto:hello@verdanthorizon.farm" class="btn btn-primary">Get in Touch</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <div class="logo-icon">🌿</div>
+          Verdant Horizon
+        </a>
+        <p>A multi-sector agricultural enterprise committed to sustainable production across coffee, livestock, and aquaculture.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Divisions</h4>
+        <ul>
+          <li><a href="#coffee">Coffee Farming</a></li>
+          <li><a href="#pig">Pig Farming</a></li>
+          <li><a href="#fishery">Fishery Farming</a></li>
+          <li><a href="#chicken">Chicken Farming</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#home">About</a></li>
+          <li><a href="#divisions">Operations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@verdanthorizon.farm">hello@verdanthorizon.farm</a></li>
+          <li>+1 (555) 012-3456</li>
+          <li>Agricultural Hub, Region</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Verdant Horizon Farms. All rights reserved.</span>
+      <span>Sustainable Agriculture · Quality Produce</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Header shadow on scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 100;
+        if (scrollY >= top) current = section.getAttribute('id');
+      });
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
